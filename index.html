@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>モ－ルス信号</title>
+    <style>
+        body{
+            overflow: hidden;
+            text-align: center; 
+        }
+        #textarea{
+            height: 20vh;
+            width: 97vw;
+            position: absolute;
+            left: 1vw;
+            top: 11vh;
+            resize: none;
+        }
+        #textarea2{
+            height: 20vh;
+            width: 97vw;
+            position: absolute;
+            left: 1vw;
+            top: 71vh;
+            resize: none;
+        }
+        h1{
+            position: relative;
+            top: 0vh;
+            font-size: 5vh;
+        }
+        p{
+            position: relative;
+            top: 35vh;
+            font-size: 3vh;
+        }
+    </style>
+</head>
+<body>
+    <h1>モ－ルス信号 変換器（欧文用）</h1>
+    <textarea id="textarea" rows="10" readonly></textarea>
+    <p>モ－ルス信号をCTRLキ－で入力します。リアルタイムでアルファベットに直され下のテキストエリアに追加されます。存在しないモールス符号が入力されると"█"を出力します。</p>
+    <textarea id="textarea2" rows="10" readonly></textarea>
+    <script>
+
+
+let txtAre = document.querySelector("#textarea");
+let txtAre2 = document.querySelector("#textarea2");
+let alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","1","2","3","4","5","6","7","8","9","0",".",",",":","?","'","-","(",")","/","=","+",'"',"*","@"];
+let hyou = [
+    "・－",
+    "－・・・",
+    "－・－・",
+    "－・・",
+    "・",
+    "・・－・",
+    "－－・",
+    "・・・・",
+    "・・",
+    "・－－－",
+    "－・－",
+    "・－・・",
+    "－－",
+    "－・",
+    "－－－",
+    "・－－・",
+    "－－・－",
+    "・－・",
+    "・・・",
+    "－",
+    "・・－",
+    "・・・－",
+    "・－－",
+    "－・・－",
+    "－・－－",
+    "－－・・",
+    "・－－－－",
+    "・・－－－",
+    "・・・－－",
+    "・・・・－",
+    "・・・・・",
+    "－・・・・",
+    "－－・・・",
+    "－－－・・",
+    "－－－－・",
+    "－－－－－",
+    "・－・－・－",
+    "－－・・－－",
+    "－－－・・・",
+    "・・－－・・",
+    "・－－－－・",
+    "－・・・・－",
+    "－・－－・",
+    "－・－－・－",
+    "－・・－・",
+    "－・・・－",
+    "・－・－・",
+    "・－・・－・",
+    "－・・－",
+    "・－－・－・"
+]
+let moji = "";
+let play = false; //再生するか
+let AudioContext = window.AudioContext || window.webkitAudioContext;
+let ctx = new AudioContext();
+let oscillator = ctx.createOscillator();
+let timer,timer2,timer3;
+let long = false;
+let long2 = false;
+let long3 = false;
+oscillator.type = 'sine';
+function Fplay(hz){ 
+    if(play){ //playがtrueだったら再生
+        oscillator = ctx.createOscillator();
+        oscillator.type = 'sine';
+        oscillator.frequency.value = hz;
+        oscillator.connect(ctx.destination);
+        oscillator.start();
+    }else{
+        oscillator.stop(); //止める
+    }
+}
+function Flong(){
+    long = true;
+}
+document.addEventListener('keydown',(e)=>{
+    if(play==false && e.keyCode==17){
+        play = true;
+        Fplay(500);
+        long=false;
+        clearTimeout(timer2);
+        clearTimeout(timer3);
+        if(long2){
+            if(long3){
+                txtAre.value += "　";
+            }
+            txtAre.value += "　"; //文字と文字の間の区切り
+        }
+        timer = setTimeout(()=>{
+            long = true;
+        }, 150);
+    }
+    
+});
+document.addEventListener('keyup',(e)=>{
+    if(e.keyCode==17){
+        clearTimeout(timer);
+        play = false;
+        Fplay();
+        if(long){
+            txtAre.value += "－";
+            moji += "－"
+        }else{
+            txtAre.value += "・";
+            moji += "・"
+        }
+        long2=false;
+        timer2 = setTimeout(()=>{
+            long2 = true;
+            long3=false;
+            timer3 = setTimeout(()=>{
+                long3 = true;
+                txtAre2.value += " "
+            }, 400);
+            if(alphabet[hyou.indexOf(moji)]=="undifined"){
+                txtAre2.value +="█";
+            }else{
+                txtAre2.value += alphabet[hyou.indexOf(moji)];
+            }
+            moji = "";
+        }, 300);
+    }
+});
+
+
+    </script>
+</body>
+</html>
