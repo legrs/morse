@@ -21,7 +21,7 @@
             width: 97vw;
             position: absolute;
             left: 1vw;
-            top: 71vh;
+            top: 78vh;
             resize: none;
         }
         h1{
@@ -34,19 +34,30 @@
             top: 35vh;
             font-size: 3vh;
         }
+        #remove{
+            position: absolute;
+            top: 60vh;
+            height: 10vh;
+            width: 10vw;
+            font-size: 4vh;
+        }
+        #remove:hover{
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
     <h1>モ－ルス信号 変換器（欧文用）</h1>
     <textarea id="textarea" rows="10" readonly></textarea>
-    <p>モ－ルス信号をCTRLキ－で入力します。リアルタイムでアルファベットに直され下のテキストエリアに追加されます。存在しないモールス符号が入力されると"█"を出力します。</p>
+    <input type="button" id="remove" value="全消し">
+    <p>モ－ルス信号をCTRLキ－で入力します。リアルタイムでアルファベットに直され下のテキストエリアに追加されます。存在しないモールス符号が入力されると"█"を出力します。"・・・・・・・・"で１文字訂正できます。長点判定のしきい値は150ミリ秒です。</p>
     <textarea id="textarea2" rows="10" readonly></textarea>
     <script>
 
 
 let txtAre = document.querySelector("#textarea");
 let txtAre2 = document.querySelector("#textarea2");
-let alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","1","2","3","4","5","6","7","8","9","0",".",",",":","?","'","-","(",")","/","=","+",'"',"*","@"];
+let alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","1","2","3","4","5","6","7","8","9","0",".",",",":","?","'","-","(",")","/","=","+",'"',"*","@","bacspace"];
 let hyou = [
     "・－",
     "－・・・",
@@ -97,8 +108,10 @@ let hyou = [
     "・－・－・",
     "・－・・－・",
     "－・・－",
-    "・－－・－・"
+    "・－－・－・",
+    "・・・・・・・・"
 ]
+let btn = document.querySelector("#remove");
 let moji = "";
 let play = false; //再生するか
 let AudioContext = window.AudioContext || window.webkitAudioContext;
@@ -108,6 +121,7 @@ let timer,timer2,timer3;
 let long = false;
 let long2 = false;
 let long3 = false;
+let bs = false;
 oscillator.type = 'sine';
 function Fplay(hz){ 
     if(play){ //playがtrueだったら再生
@@ -123,6 +137,11 @@ function Fplay(hz){
 function Flong(){
     long = true;
 }
+remove.addEventListener("click",()=>{
+    txtAre.value = "";
+    txtAre2.value = "";
+    moji="";
+});
 document.addEventListener('keydown',(e)=>{
     if(play==false && e.keyCode==17){
         play = true;
@@ -160,12 +179,23 @@ document.addEventListener('keyup',(e)=>{
             long3=false;
             timer3 = setTimeout(()=>{
                 long3 = true;
-                txtAre2.value += " "
+                if(!bs){
+                    txtAre2.value += " "
+                }
             }, 400);
             if(alphabet[hyou.indexOf(moji)]==undefined){
                 txtAre2.value +="█";
             }else{
-                txtAre2.value += alphabet[hyou.indexOf(moji)];
+                if(alphabet[hyou.indexOf(moji)] == "bacspace"){
+                    console.log(txtAre2.value.substr(-1, 1));
+                    while(txtAre2.value.substr(-1, 1)==" "){
+                        txtAre2.value = txtAre2.value.slice(0,-1);
+                    }
+                    txtAre2.value = txtAre2.value.slice(0,-1);
+                    bs=true;
+                }else{
+                    txtAre2.value += alphabet[hyou.indexOf(moji)];
+                }
             }
             moji = "";
         }, 300);
