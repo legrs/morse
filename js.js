@@ -175,7 +175,7 @@ function StrToBoolean(str) {
     return (str == 'true') ? true : false;
 
 }
-if(document.cookie!="data="){
+if(document.cookie!="data=" || document.cookie!=""){
     console.log(document.cookie);
     let cookiee= document.cookie.replace("data=", "");
     let cookieee = cookiee.split("/");
