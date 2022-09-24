@@ -167,14 +167,6 @@ if(document.cookie!="data="){
     volume = cookieeeee[3];
 }
 
-range.forEach((element, index)=>{  //数値をスライダーの値にする
-    element.addEventListener('input',()=>{
-        rangehtml[index].value = element.value;
-        frequency = range[0].value;
-        longDecision = range[1].value;
-        volume = range[2].value;
-    });
-});
 rangehtml.forEach((element, index)=>{  //数値をスライダーの値にする
     element.addEventListener('input',()=>{
         range[index].value = element.value;
@@ -183,6 +175,15 @@ rangehtml.forEach((element, index)=>{  //数値をスライダーの値にする
         volume = range[2].value;
     });
 });
+range.forEach((element, index)=>{  //数値をスライダーの値にする
+    element.addEventListener('input',()=>{
+        rangehtml[index].value = element.value;
+        frequency = range[0].value;
+        longDecision = range[1].value;
+        volume = range[2].value;
+    });
+});
+
 function play(){
     stop();
     if(firstflg){
@@ -362,5 +363,5 @@ savecookie.addEventListener("click",()=>{
     document.cookie = `data=${m1.checked}/${em1.checked}/${keycode1}/${frequency}/${longDecision}/${volume};max-age=31536000`;
 });
 removecookie.addEventListener("click",()=>{
-    document.cookie = "data=; max-age=31536000";
+    document.cookie = "data=; max-age=1";
 });
