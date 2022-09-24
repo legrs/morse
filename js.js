@@ -152,7 +152,7 @@ let tr200,tr300,tr400;
 let long1 = false;
 let long2 = false;
 let long3 = false;
-if(document.cookie="data="){
+if(document.cookie!="data="){
     console.log(document.cookie);
     let cookiee= document.cookie.replace("data=", "");
     let cookieee = cookiee.split("/");
