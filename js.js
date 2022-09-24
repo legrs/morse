@@ -207,6 +207,9 @@ if(document.cookie!="data="){
     range[0].value = frequency;
     range[1].value = longDecision;
     range[2].value = volume;
+    rangehtml[0].value = frequency;
+    rangehtml[1].value = longDecision;
+    rangehtml[2].value = volume;
 }
 function play(){
     stop();
