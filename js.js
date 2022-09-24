@@ -203,7 +203,19 @@ if(document.cookie=="data=" || document.cookie==""){
         t2.value = "";
     }
     keycode1 = cookieeeee[0];
-    keyinput.value = keyArr[keycodeArr.indexOf(keycode1)];
+    if(keycode1!=""){
+        keyinput.value = keyArr[keycodeArr.indexOf(keycode1)];
+        keyinput.value = "";
+        if(keyArr[keycodeArr.indexOf(keycode1)] != undefined){
+            keyinput.value = keyArr[keycodeArr.indexOf(keycode1)];
+            keyinput.style.backgroundColor = "#fff";
+            keyinput.style.caretColor = "#fff";
+        }else{
+            keycode1 =  -1;
+            keyinput.style.backgroundColor = "rgb(255, 130, 130)";
+            keyinput.style.caretColor = "rgb(255, 130, 130)";
+        }
+    }
     frequency = cookieeeee[1];
     longDecision = cookieeeee[2];
     volume = cookieeeee[3];
