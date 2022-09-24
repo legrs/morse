@@ -152,20 +152,7 @@ let tr200,tr300,tr400;
 let long1 = false;
 let long2 = false;
 let long3 = false;
-if(document.cookie!="data="){
-    console.log(document.cookie);
-    let cookiee= document.cookie.replace("data=", "");
-    let cookieee = cookiee.split("/");
-    let cookieeee = [Boolean(cookieee[0]),Boolean(cookieee[1])];
-    let cookieeeee = [Number(cookieee[2]),Number(cookieee[3]),Number(cookieee[4]),Number(cookieee[5])];
-    console.log(cookieee);
-    m1.checked = cookieeee[0];
-    em1.checked = cookieeee[1];
-    keycode1 = cookieeeee[0];
-    frequency = cookieeeee[1];
-    longDecision = cookieeeee[2];
-    volume = cookieeeee[3];
-}
+
 
 rangehtml.forEach((element, index)=>{  //数値をスライダーの値にする
     element.addEventListener('input',()=>{
@@ -183,7 +170,23 @@ range.forEach((element, index)=>{  //数値をスライダーの値にする
         volume = range[2].value;
     });
 });
-
+if(document.cookie!="data="){
+    console.log(document.cookie);
+    let cookiee= document.cookie.replace("data=", "");
+    let cookieee = cookiee.split("/");
+    let cookieeee = [Boolean(cookieee[0]),Boolean(cookieee[1])];
+    let cookieeeee = [Number(cookieee[2]),Number(cookieee[3]),Number(cookieee[4]),Number(cookieee[5])];
+    console.log(cookieee);
+    m1.checked = cookieeee[0];
+    em1.checked = cookieeee[1];
+    keycode1 = cookieeeee[0];
+    frequency = cookieeeee[1];
+    longDecision = cookieeeee[2];
+    volume = cookieeeee[3];
+    range[0].value = frequency;
+    range[1].value = longDecision;
+    range[2].value = volume;
+}
 function play(){
     stop();
     if(firstflg){
