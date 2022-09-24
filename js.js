@@ -185,6 +185,7 @@ if(document.cookie!="data="){
     m1.checked = cookieeee[0];
     changeMode();
     em1.checked = cookieeee[1];
+    em2.checked = !cookieeee[1];
     if(em1.checked == true){
         em1.style.backgroundColor = "rgb(123, 185, 255)";
         em1.style.border = "1vh solid rgb(54, 134, 255)";
