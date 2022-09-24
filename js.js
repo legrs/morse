@@ -183,7 +183,17 @@ if(document.cookie!="data="){
     let cookieeeee = [Number(cookieee[2]),Number(cookieee[3]),Number(cookieee[4]),Number(cookieee[5])];
     console.log(cookieeee);
     m1.checked = cookieeee[0];
+    changeMode();
     em1.checked = cookieeee[1];
+    if(em1.checked == true){
+        t2.style.backgroundColor = "rgb(255, 255, 255)";
+        t2.placeholder = "結果";
+        t2.value = t3;
+    }else{
+        t2.style.backgroundColor = "rgb(222, 222, 222)";
+        t2.placeholder = "結果は上で上書きされます";
+        t2.value = "";
+    }
     keycode1 = cookieeeee[0];
     frequency = cookieeeee[1];
     longDecision = cookieeeee[2];
