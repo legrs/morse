@@ -202,6 +202,7 @@ if(document.cookie=="data=" || document.cookie==""){
         t2.placeholder = "結果は上で上書きされます";
         t2.value = "";
     }
+    keycode1 = cookieeeee[0];
     keyinput.value = keyArr[keycodeArr.indexOf(keycode1)];
     frequency = cookieeeee[1];
     longDecision = cookieeeee[2];
