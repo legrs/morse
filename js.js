@@ -152,8 +152,16 @@ let tr200,tr300,tr400;
 let long1 = false;
 let long2 = false;
 let long3 = false;
-
-console.log(document.cookie);
+if(document.cookie="data="){
+    let cookiee= document.cookie.replace("data=", "");
+    let cookieee = cookiee.split("/");
+    m1.checked = cookieee[0];
+    em1.checked = cookieee[1];
+    keycode1 = cookieee[2];
+    frequency = cookieee[3];
+    longDecision = cookieee[4];
+    volume = cookieee[5];
+}
 
 range.forEach((element, index)=>{  //数値をスライダーの値にする
     element.addEventListener('input',()=>{
