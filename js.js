@@ -202,6 +202,7 @@ if(document.cookie!="data="){
         t2.value = "";
     }
     keycode1 = cookieeeee[0];
+    keyinput.value = keyArr[keycodeArr.indexOf(keycode1)];
     frequency = cookieeeee[1];
     longDecision = cookieeeee[2];
     volume = cookieeeee[3];
