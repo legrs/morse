@@ -1,0 +1,279 @@
+body{
+    overflow: hidden;
+    background-color: rgb(195, 231, 198);
+}
+*{
+    font-family: 'Noto Sans Japanese', sans-serif;
+}
+#textarea{
+    background-color: rgb(255, 255, 255);
+    color: #000;
+    height: 20vh;
+    width: 95vw;
+    position: absolute;
+    left: 2.5vw;
+    top: 10vh;
+    cursor: default;
+    resize: none;
+    border: none;
+    outline: none;
+    border-radius: 1vh;
+    font-size: 2.5vh;
+    font-weight: 900;
+}
+#textarea2{
+    background-color: rgb(255, 255, 255);
+    color: #000;
+    height: 20vh;
+    width: 58vw;
+    position: absolute;
+    left: 2.5vw;
+    top: 75vh;
+    cursor: default;
+    resize: none;
+    border: none;
+    outline: none;
+    border-radius: 1vh;
+    font-size: 3vh;
+    font-weight: 500;
+}
+p{
+    position: absolute;
+    top: 30vh;
+    right: 51vw;
+    font-size: 1.7vw;
+    font-weight: 700;
+    z-index: 3;
+}
+a{
+    position: relative;
+    z-index: 5;
+}
+#remove{
+    background-color: rgb(135, 135, 135);
+    border: 0px;
+    border-radius: 1vh;
+    color: #fff;
+    position: absolute;
+    top: 55vh;
+    left: 53vw;
+    height: 10vh;
+    width: 8vw;
+    font-size: 2vw;
+    transition: all 200ms;
+    z-index: 1000;
+}
+#remove:hover{
+    background-color: rgb(148, 148, 148);
+    cursor: pointer;
+}
+#option{
+    position: absolute;
+    top: 40vh;
+    left: 62vw;
+    width: 50vw;
+    height: 54vh;
+    border: 1vh solid rgb(138, 138, 138);
+    border-radius: 1vh;
+    display: flex;
+    flex-flow: row wrap;
+}
+#mode{
+    margin: 1vh;
+    display: flex;
+    justify-content: center;
+    flex-flow: column;
+    background-color: rgb(255, 255, 255);
+    border-radius: 1vh;
+    height: 20vh;
+    width: 10vw;
+}
+#exportmode{
+    margin: 1vh;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(255, 255, 255);
+    border-radius: 1vh;
+    height: 20vh;
+    width: 20vw;
+    margin-left: 0vh;
+}
+#bsmode{
+    margin: 1vh;
+    display: flex;
+    justify-content: center;
+    flex-flow: column;
+    background-color: rgb(255, 255, 255);
+    border-radius: 1vh;
+    height: 20vh;
+    width: 15vw;
+    position: relative;
+    top: 2vh;
+}
+#morsesettings{
+    margin: 1vh;
+    position: relative;
+    bottom: 2vh;
+}
+#mode1,#mode2,#exportmode1,#exportmode2,#bsmode1,#bsmode2{
+    display: none;
+}
+.label{
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(123, 185, 255);
+    border: 0vh solid rgb(54, 134, 255);
+    color: #000;
+    margin: 2vh;
+    padding: 1vh;
+    border-radius: 1vh;
+    transition: all 100ms;
+    font-size: 2.5vh;
+    font-weight: 500;
+}
+input:checked + label {
+    color: #fff;
+    border: 1vh solid rgb(54, 134, 255);
+    background-color: rgb(123, 185, 255);
+}
+#morseExplain{
+    position: absolute;
+    top: -2vh;
+    left: 40vw;
+    font-size: 4.5vh;
+}
+#alphabetExplain{
+    position: absolute;
+    top: 62vh;
+    left: 25vw;
+    font-size: 4.5vh;
+}
+#optionExplain{
+    position: absolute;
+    top: 28vh;
+    left: 79.5vw;
+    font-size: 4.5vh;
+}
+
+/* スライダーのデザイン変える */
+input[type="range"] {
+    -webkit-appearance: none; 
+    appearance: none;
+    cursor: pointer; 
+    outline: none; 
+    height: 2vh; 
+    background: #fff; 
+    border-radius: 0.5vh; 
+}
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none; 
+    background: #53aeff;
+    width: 3vh;
+    height: 3vh; 
+    border-radius: 1vh; 
+}
+input[type="range"]:active::-webkit-slider-thumb {
+    border: 0.5vh solid rgb(54, 134, 255);
+}
+/* ここまで */
+.Hzmin{
+    font-size: 2.5vh;
+    font-weight: 500;
+    margin: 0vh;
+    color: rgb(0, 85, 255);
+}
+.Hzmax{
+    font-size: 2.5vh;
+    font-weight: 500;
+    margin: 0vh;
+    color: rgb(255, 132, 0);
+}
+#frequency{
+    width: 20vw;
+}
+#longDecision{
+    margin-left: 2vh;
+    width: 20vw;
+}
+#volume{
+    margin-left: 5vh;
+    width: 20vw;
+}
+#about1{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    left: 1.5vh;
+    font-size: 3vh;
+    font-weight: 700;
+    margin-right: 9vh;
+}
+#about2{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    right: 3vh;
+    font-size: 3vh;
+    font-weight: 700;
+}
+#about3{
+    display: flex;
+    justify-content: center;
+    font-size: 3vh;
+    font-weight: 700;
+    margin-right: 6vh;
+}
+.range{
+    margin-bottom: 0vh;
+}
+#frequencyhtml, #volumehtml, #longDecisionhtml{
+    width: 3vw;
+    margin-right: 1vw;
+    appearance: none;
+    border: 0vh solid #000;
+    height: 4vh;
+    width: 5vw;
+    text-align:center;
+    font-size: 2.8vh;
+    border-radius: 0.5vh;
+    outline: none;
+}
+#nyuryoku{
+    background-color: rgb(54, 134, 255);
+    border: 0px;
+    border-radius: 1vh;
+    color: #fff;
+    position: absolute;
+    top: 55vh;
+    left: 37vw;
+    height: 10vh;
+    width: 10vw;
+    font-size: 2vw;
+    z-index: 1001; 
+    cursor: pointer;
+}
+#keyinput{
+    height: 10vh;
+    width: 5vw;
+    position: relative;
+    top: 10.5vh;
+    right: 11.5vh;
+    background-color: #fff;
+    border: 0vh solid #000;
+    border-radius: 1vh;
+    caret-color: #fff;
+    outline: none; 
+    z-index: 1000;
+}
+#keyinput:focus{
+    border: 0.5vh solid rgb(0, 132, 255);
+}
+#keyinputexplain{
+    font-size: 3vh;
+    font-weight: 700;
+    position: relative;
+    top: 3vh;
+
+}
