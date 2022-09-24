@@ -153,6 +153,7 @@ let long1 = false;
 let long2 = false;
 let long3 = false;
 if(document.cookie="data="){
+    console.log(document.cookie);
     let cookiee= document.cookie.replace("data=", "");
     let cookieee = cookiee.split("/");
     let cookieeee = [Boolean(cookieee[0]),Boolean(cookieee[1])];
