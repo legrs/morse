@@ -272,7 +272,7 @@ function decision(){
     clearTimeout(tr300);
     tr300 = setTimeout(() => {
         long2 = false;
-        let tttt = t.value;
+        console.log(`${alphabet[morseCode.indexOf(moji)]}、、${morseCode.indexOf(moji)}、、${moji}`);
         if(alphabet[morseCode.indexOf(moji)]==undefined){
             t2.value+="█";
             t3+="█";
