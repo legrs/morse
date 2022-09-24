@@ -170,13 +170,19 @@ range.forEach((element, index)=>{  //数値をスライダーの値にする
         volume = range[2].value;
     });
 });
+function StrToBoolean(str) {
+    // 文字列を判定
+    return (str == 'true') ? true : false;
+
+}
 if(document.cookie!="data="){
     console.log(document.cookie);
     let cookiee= document.cookie.replace("data=", "");
     let cookieee = cookiee.split("/");
-    let cookieeee = [Boolean(cookieee[0]),Boolean(cookieee[1])];
+    let cookieeee = [StrToBoolean(cookieee[0]),StrToBoolean(cookieee[1])];
     let cookieeeee = [Number(cookieee[2]),Number(cookieee[3]),Number(cookieee[4]),Number(cookieee[5])];
-    console.log(cookieeee);
+    console.log();
+    console.log(cookieee);
     m1.checked = cookieeee[0];
     em1.checked = cookieeee[1];
     keycode1 = cookieeeee[0];
