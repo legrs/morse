@@ -186,10 +186,16 @@ if(document.cookie!="data="){
     changeMode();
     em1.checked = cookieeee[1];
     if(em1.checked == true){
+        em1.style.backgroundColor = "rgb(123, 185, 255)";
+        em1.style.border = "1vh solid rgb(54, 134, 255)";
+        em1.style.color = "#fff";
         t2.style.backgroundColor = "rgb(255, 255, 255)";
         t2.placeholder = "結果";
         t2.value = t3;
     }else{
+        em2.style.backgroundColor = "rgb(123, 185, 255)";
+        em2.style.border = "1vh solid rgb(54, 134, 255)";
+        em2.style.color = "#fff";
         t2.style.backgroundColor = "rgb(222, 222, 222)";
         t2.placeholder = "結果は上で上書きされます";
         t2.value = "";
