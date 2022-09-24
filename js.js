@@ -155,12 +155,14 @@ let long3 = false;
 if(document.cookie="data="){
     let cookiee= document.cookie.replace("data=", "");
     let cookieee = cookiee.split("/");
-    m1.checked = cookieee[0];
-    em1.checked = cookieee[1];
-    keycode1 = cookieee[2];
-    frequency = cookieee[3];
-    longDecision = cookieee[4];
-    volume = cookieee[5];
+    let cookieeee = [Boolean(cookieee[0]),Boolean(cookieee[1])];
+    let cookieeeee = [Number(cookieee[2]),Number(cookieee[3]),Number(cookieee[4]),Number(cookieee[5])];
+    m1.checked = cookieeee[0];
+    em1.checked = cookieeee[1];
+    keycode1 = cookieeeee[0];
+    frequency = cookieeeee[1];
+    longDecision = cookieeeee[2];
+    volume = cookieeeee[3];
 }
 
 range.forEach((element, index)=>{  //数値をスライダーの値にする
