@@ -247,7 +247,7 @@ input[type="range"]:active::-webkit-slider-thumb {
     color: #fff;
     position: absolute;
     top: 55vh;
-    left: 43vw;
+    left: 39vw;
     height: 10vh;
     width: 10vw;
     font-size: 2vw;
