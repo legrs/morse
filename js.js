@@ -183,9 +183,8 @@ if(document.cookie=="data=" || document.cookie==""){
     let cookieee = cookiee.split("/");
     let cookieeee = [StrToBoolean(cookieee[0]),StrToBoolean(cookieee[1])];
     let cookieeeee = [Number(cookieee[2]),Number(cookieee[3]),Number(cookieee[4]),Number(cookieee[5])];
-    console.log(cookieeee);
     m1.checked = cookieeee[0];
-    changeMode();
+    m2.checked = !cookieeee[0];
     em1.checked = cookieeee[1];
     em2.checked = !cookieeee[1];
     if(em1.checked == true){
