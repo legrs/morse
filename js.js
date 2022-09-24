@@ -21,6 +21,8 @@ let m1 = document.querySelector("#mode1");
 let m2 = document.querySelector("#mode2");
 let em1 = document.querySelector("#exportmode1");
 let em2 = document.querySelector("#exportmode2");
+let savecookie = document.querySelector("#save");
+let removecookie = document.querySelector("#removecookie");
 m2.checked = true;
 em1.checked = true;
 let firstflg = true;
@@ -151,6 +153,8 @@ let long1 = false;
 let long2 = false;
 let long3 = false;
 
+console.log(document.cookie);
+
 range.forEach((element, index)=>{  //数値をスライダーの値にする
     element.addEventListener('input',()=>{
         rangehtml[index].value = element.value;
@@ -274,6 +278,10 @@ function changeMode(){
         morseCode=morseCode3;
     }
 }
+function zeroPadding(num){
+    let str = ('000' + num).slice(-3);
+    return Number(str);
+}
 nyuryoku.addEventListener("mousedown",()=>{
     push();
 });
@@ -337,4 +345,10 @@ em2.addEventListener("click",()=>{
     t2.style.backgroundColor = "rgb(222, 222, 222)";
     t2.placeholder = "結果は上で上書きされます";
     t2.value = "";
+});
+savecookie.addEventListener("click",()=>{
+    document.cookie = `data=${m1.checked}/${em1.checked}/${keycode1}/${frequency}/${longDecision}/${volume};max-age=31536000`;
+});
+removecookie.addEventListener("click",()=>{
+    document.cookie = "data=; max-age=31536000";
 });

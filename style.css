@@ -153,7 +153,7 @@ input:checked + label {
 #optionExplain{
     position: absolute;
     top: 28vh;
-    left: 79.5vw;
+    left: 65vw;
     font-size: 4.5vh;
 }
 
@@ -276,4 +276,39 @@ input[type="range"]:active::-webkit-slider-thumb {
     position: relative;
     top: 3vh;
 
+}
+#save{
+    background-color: rgb(66, 179, 92);
+    border: 0.4vh solid #ffffff;
+    border-radius: 1vh;
+    color: #fff;
+    position: absolute;
+    top: 31.5vh;
+    left: 70vw;
+    height: 8vh;
+    width: 15vw;
+    font-size: 2.8vh;
+    transition: all 80ms;
+    z-index: 1000;
+    cursor: pointer;
+}
+#save:active{
+    background-color: rgb(105, 211, 130);
+}
+#removecookie{
+    background-color: rgb(179, 102, 66);
+    border: 0.4vh solid #ffffff;
+    border-radius: 1vh;
+    color: #fff;
+    position: absolute;
+    top: 31.5vh;
+    left: 90vw;
+    height: 8vh;
+    width: 8vw;
+    font-size: 2.8vh;
+    z-index: 1000;
+    cursor: pointer;
+}
+#removecookie:active{
+    background-color: rgb(211, 142, 105)
 }
