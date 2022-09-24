@@ -176,7 +176,7 @@ if(document.cookie!="data="){
     let cookieee = cookiee.split("/");
     let cookieeee = [Boolean(cookieee[0]),Boolean(cookieee[1])];
     let cookieeeee = [Number(cookieee[2]),Number(cookieee[3]),Number(cookieee[4]),Number(cookieee[5])];
-    console.log(cookieee);
+    console.log(cookieeee);
     m1.checked = cookieeee[0];
     em1.checked = cookieeee[1];
     keycode1 = cookieeeee[0];
