@@ -41,9 +41,12 @@ p{
     position: absolute;
     top: 30vh;
     right: 51vw;
+    height: 35vh;
+    width: 50vh;
     font-size: 1.7vw;
     font-weight: 700;
     z-index: 3;
+    
 }
 a{
     position: relative;
